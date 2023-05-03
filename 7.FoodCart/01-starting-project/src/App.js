@@ -6,7 +6,7 @@ import CartProvider from "./store/CartProvider";
 function App() {
   const [showCart, setShowCart] = useState(true);
   function toggle(){
-    setShowCart(!showCart)
+    setShowCart(!showCart);
   }
   return (
     <CartProvider>
