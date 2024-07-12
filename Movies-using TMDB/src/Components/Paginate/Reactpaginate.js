@@ -8,7 +8,7 @@ const Reactpaginate= ({paginate, pagenum}) => {
 
     const handlesClick = (e) =>{
 		const selectedPage = e.selected + 1;
-		setSeletedPage(selectedPage)
+		setSeletedPage(selectedPage);
 		paginate(selectedPage);
 	}
 
