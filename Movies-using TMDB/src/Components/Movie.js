@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import Reactpaginate from './Paginate/Reactpaginate';
 import REQUEST from './AxiosPost'
 import './Paginate/paginate.css';
-
+import appConfig from '../appConfig';
 export default function Movie(){
     
     const [Count, SetCount] = useState(1);
@@ -13,9 +13,8 @@ export default function Movie(){
     //STATES
     const [Movies, setMovies] = useState(); 
     const [pagenum, SetPagenum] = useState(0);
-
     useEffect(()=>{
-        REQUEST.POST(`https://api.themoviedb.org/3/discover/movie?api_key=8b445d0567755b890836df8987cafeb7&page=${Count}`).then((res)=>{
+        REQUEST.POST(`https://api.themoviedb.org/3/discover/movie?api_key=${appConfig?.TMDB_API_KEY}&page=${Count}`).then((res)=>{
             setMovies(res.data.results);
             SetPagenum(500);
         })

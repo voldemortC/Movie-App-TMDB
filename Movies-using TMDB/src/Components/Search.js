@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import REQUESTS from './AxiosPost';
 import './Search.css';
+import appConfig from '../appConfig';
 
 export default function Search(){
     const cdn = `https://image.tmdb.org/t/p/original`;
@@ -8,7 +9,7 @@ export default function Search(){
     const[result, setResult] =  useState([]);
 
     useEffect(()=>{
-        REQUESTS.POST(`https://api.themoviedb.org/3/search/multi?api_key=8b445d0567755b890836df8987cafeb7&query=${query}`).then((res)=>{
+        REQUESTS.POST(`https://api.themoviedb.org/3/search/multi?api_key=${appConfig.TMDB_API_KEY}&query=${query}`).then((res)=>{
             setResult(res.data.results);
         })
     }, [query])

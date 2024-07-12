@@ -7,11 +7,12 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import "swiper/css/effect-cards";
 import './slidershow.css';
+import appConfig from '../../appConfig';
 
 // console.log(REQUESTS, 'REQUESTS---')
 export default function Trendingdlider(){
     const cdn = 'https://image.tmdb.org/t/p/original';
-    const url = `https://api.themoviedb.org/3/trending/all/day?api_key=8b445d0567755b890836df8987cafeb7&page=1`;
+    const url = `https://api.themoviedb.org/3/trending/all/day?api_key=${appConfig.TMDB_API_KEY}&page=1`;
     
     const [endpoint, setEndpoint] = useState(url);
     const [Trendslides, setTrendslides] = useState();

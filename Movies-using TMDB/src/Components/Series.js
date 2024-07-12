@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import Reactpaginate from './Paginate/Reactpaginate';
 import REQUEST from './AxiosPost'
 import './Paginate/paginate.css';
+import  appConfig from '../appConfig';
 
 export default function Series(){
     
@@ -15,7 +16,7 @@ export default function Series(){
     const [pagenum, SetPagenum] = useState(0);
 
     useEffect(()=>{
-        REQUEST.POST(`https://api.themoviedb.org/3/discover/tv?api_key=8b445d0567755b890836df8987cafeb7&page=${Count}`).then((res)=>{
+        REQUEST.POST(`https://api.themoviedb.org/3/discover/tv?api_key=${appConfig.TMDB_API_KEY}&page=${Count}`).then((res)=>{
             setSeries(res.data.results);
             SetPagenum(500);
         })
