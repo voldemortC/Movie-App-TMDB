@@ -19,7 +19,7 @@ export default function Trendingdlider(){
 
     useEffect(() =>{
         REQUESTS.POST(endpoint).then((res)=>{
-            setTrendslides(res.data.results.slice(1,11))
+            setTrendslides(res.data.results.slice(1,11));
         });
     },[] )
 
